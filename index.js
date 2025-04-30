@@ -1,8 +1,7 @@
-// ex
 module.exports = Phrase;
 
 // reverse()メソッドを追加してすべてのStringで使えるようにする
-String.prototype.reverse = function () {
+String.prototype.reverse = function() {
   return Array.from(this).reverse().join("");
 }
 
@@ -10,16 +9,17 @@ String.prototype.reverse = function () {
 function Phrase(content) {
   this.content = content;
 
-  // パリンドロームのテスト用に変換した訳文を返す
+   // パリンドロームのテスト用に変換した訳文を返す
   this.processedContent = function processedContent() {
     return this.letters().toLowerCase();
   }
 
-  // 文字だけを返す
+  // コンテンツの文字だけを返す
   // 利用例:
-  // new Phrase("Hello, world!").letters() === "Helloworld"
+  //   new Phrase("Hello, world!").letters() === "Helloworld"
   this.letters = function letters() {
-    return this.content.match(/[a-z]/gi || []).join("");
+    const lettersRegEx = /[a-z]/gi;
+    return (this.content.match(lettersRegEx) || []).join("");
   }
 
   // パリンドロームならtrueを、違うならfalseを返す
