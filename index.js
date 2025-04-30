@@ -1,3 +1,6 @@
+// exportを記述
+module.exports = Phrase; 
+
 // reverse()メソッドを追加してすべてのStringで使えるようにする
 String.prototype.reverse = function() {
     return Array.from(this).reverse().join("");
